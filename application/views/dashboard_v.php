@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
   <?php $this->load->view("includes/header")?>
 </head>
@@ -16,11 +16,9 @@
 
 <!-- Sidebar Start -->
 
-<?php $this->load->view("includes/sidebar")?>
+<?php $this->load->view("includes/aside")?>
 
 <!-- Sidebar End -->
-
-  
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
