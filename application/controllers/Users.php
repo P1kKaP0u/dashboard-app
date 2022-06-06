@@ -66,6 +66,58 @@ class Users extends CI_Controller
     }
 
 
+    public function delete($where = array ())
+    {
+
+        $delete = $this->Users_model->delete($where);
+        if($delete)
+        {
+            redirect("users/index");
+        }
+
+    }
+
+
+    public function updateForm($where = array())
+    {
+
+        $items = array(
+
+            "items" => $this->Users_model->get($where)
+
+        );
+
+        $viewData = new stdClass();
+        $viewData->viewFolder = $this->viewFolder;
+        $viewData->subviewFolder = "update";
+        $viewData->items = $items;
+
+        $this->load->view("{$viewData->viewFolder}/{$viewData->subviewFolder}/index", $viewData);
+
+    }
+
+
+    public function update($where = array())
+    {
+     
+      
+        $data = array(
+
+            "user_name" => $this->input->post("user_name"),
+            "full_name" => $this->input->post("full_name"),       
+            "email"     => $this->input->post("email"),
+            "isactive"  => $this->input->post("isactive")
+            
+        );
+
+        $update = $this->Users_model->update($where, $data);
+        if($update)
+        {
+            redirect("users/index");
+        }  
+        
+    }
+
 
 
 

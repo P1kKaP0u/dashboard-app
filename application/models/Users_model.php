@@ -18,7 +18,7 @@ class Users_model extends CI_Model
     /* Koşula bağlı istenilen tek kaydı geri döndürür. */
     public function get($where = array())
     {
-        return $this->db->where($where)->get($this->tableName)->row();
+        return $this->db->where("id" , $where)->get($this->tableName)->row();
     }
 
      /* Yeni kayıt ekler. */
@@ -31,14 +31,14 @@ class Users_model extends CI_Model
 
     public function update($where = array(), $data = array())
     {
-        return $this->db->where($where)->update($this->tableName, $data);
+        return $this->db->where( "id",$where)->update($this->tableName, $data);
     }
 
     /* Koşula bağlı belirtilen kaydı siler. */
 
     public function delete($where = array())
     {
-        return $this->db->where($where)->delete($this->tableName);
+        return $this->db->where("id" ,$where)->delete($this->tableName);
     }
 
 
